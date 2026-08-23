@@ -1,16 +1,18 @@
+import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-TOKEN = 8895421064:AAFC8CzFgXHwNjaz96d5cMKAWgBIv1tWhfU
+TOKEN = os.getenv("TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("👋 Chào mừng đến Thuật Shop! \nGõ /sanpham để xem sản phẩm")
+    await update.message.reply_text("👋 Chào mừng! Bot đã hoạt động")
 
 async def sanpham(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("📦 Danh sách sản phẩm:\n1. Sản phẩm A - 100k\n2. Sản phẩm B - 200k\n\nLiên hệ đặt hàng nhé!")
+    await update.message.reply_text("📦 Danh sách sản phẩm")
 
-app = ApplicationBuilder().token(TOKEN).build()
-app.add_handler(CommandHandler("start", start))
-app.add_handler(CommandHandler("sanpham", sanpham))
-print("Bot đang chạy...")
-app.run_polling()
+if __name__ == "__main__":
+    app = ApplicationBuilder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("sanpham", sanpham))
+    print("Bot đang chạy...")
+    app.run_polling()
