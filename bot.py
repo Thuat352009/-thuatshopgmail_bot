@@ -5,12 +5,10 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 TOKEN = os.getenv("TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Cuối cùng cũng chạy được! 24/24 trên Render 💪")
+    await update.message.reply_text("Bot chạy 24/24 rồi! Không lỗi nữa 💪")
 
-def main():
-    app = ApplicationBuilder().token(TOKEN).build()
-    app.add_handler(CommandHandler("start", start))
-    app.run_polling()
+app = ApplicationBuilder().token(TOKEN).build()
+app.add_handler(CommandHandler("start", start))
 
 if __name__ == "__main__":
-    main()
+    app.run_polling()
