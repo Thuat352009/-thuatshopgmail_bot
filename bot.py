@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-TOKEN = "DÁN_TOKEN_BOT_CỦA_BẠN_VÀO_ĐÂY"
+TOKEN = 8895421064:AAFC8CzFgXHwNjaz96d5cMKAWgBIv1tWhfU
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("👋 Chào mừng đến Thuật Shop! \nGõ /sanpham để xem sản phẩm")
